@@ -1,0 +1,96 @@
+.login header,.login_up header{
+    background: #FF6666;
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    height: 46px;
+}
+.login input,.login button{
+    padding: 0;
+    border: 0;
+    outline: none;
+    background: none;
+    padding-left: 5px;
+
+}
+.login header a,.login_up header a{
+    padding: 5px;
+}
+.login header a:first-child svg,.login_up header a:first-child svg{
+    margin-left: 10px;
+    display: block;
+}
+
+.login header p,.login_up header p{
+    font-size: 16px
+}
+.login label button svg{
+    width: 10px;
+    height: 10px;
+}
+.login .form_box div button .icon{
+    background: white;
+    width: 20px;
+    height: 20px;
+}
+.login label{
+    display: flex;
+    align-items:center;
+    height: 30px;
+    padding: 0 10px;
+}
+.login label span,label button{
+    flex-shrink:2
+}
+.login label input{
+    line-height: 30px;
+    /*width: 80%;*/
+    padding-left: 10px;
+    flex-grow:2;
+}
+.login label button{
+    padding: 2px
+}
+.login .form_box div .submit{
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    background: #FF6666;
+    color: #fff;
+    height: 30px;
+    border-radius: 5px;
+}
+.login form .form_box div{
+    margin-bottom: 5px;
+    padding: 5px 0;
+    border-bottom: 1px solid #d9d9d9;
+}
+.login .form_box div button svg{
+    padding: 2px;
+    background:#d9d9d9;
+    border-radius:50%;
+}
+.login div p{
+    text-align: center;
+    font-size: 14px;
+}
+.login .ant-tabs-nav.ant-tabs-nav-animated .ant-tabs-ink-bar{
+    background-color: #ff6666;
+}
+.login .last{
+    text-align: center;
+    margin-top: 10px;
+}
+.login .mobile input{
+    flex-grow:1;
+}
+.login .mobile button{
+    background: #d9d9d9;
+    padding: 4px;
+    border-radius: 4px;
+    line-height: 18px;
+
+}
+.login .ant-tabs-nav-scroll{
+    padding-left: 12vw;
+}

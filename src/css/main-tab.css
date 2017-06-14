@@ -1,0 +1,12 @@
+.home_warp .MainTab{
+    display: flex;
+    flex-wrap:wrap;
+    padding-top: 5px;
+    padding-bottom: 2vw;
+}
+.home_warp .MainTab a{
+    margin: 1vw 6vw;
+    width: 13vw;
+    text-align: center;
+    color:#4b4b4b;
+}

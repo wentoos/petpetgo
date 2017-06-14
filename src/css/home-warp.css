@@ -1,0 +1,7 @@
+.home_warp > div{
+    border-bottom: 2vw solid #dbdbdb;
+}
+.home_warp > div > p{
+    line-height: 7vw;
+    padding-left: 2vw
+}

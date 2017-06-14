@@ -1,0 +1,55 @@
+.home_warp .main_hot a{
+    display: block;
+}
+
+.home_warp .main_hot_top a{
+    display: block;
+    /*height: 30vw;
+    overflow: hidden;*/
+}
+.home_warp .main_hot_top a img{
+    width: 100%;
+    display: block;
+}
+.home_warp .main_hot_up > a:first-child{
+    display: block;
+    width: 50vw;
+    overflow: hidden;
+    position: relative;
+}
+.home_warp .main_hot_up{
+    display: flex;
+}
+.home_warp .main_hot_up > a:first-child img{
+    height: 50vw;
+    display: block;
+}
+.home_warp .main_hot_up a p{
+    position: absolute;
+    top:4vw;
+    left: 3vw;
+    color:#5b5b5b;
+}
+.home_warp .main_hot_up a p span{
+    font-size: 14px
+}
+.home_warp .main_hot_up a p span:last-child{
+    background: red;
+    color:white;
+    font-size: 12px;
+    padding: 0 2px;
+}
+.home_warp .main_hot_up div{
+    border-left: 1px solid #aeaeae;
+
+}
+.home_warp .main_hot_up div a{
+    position: relative;
+}
+.home_warp .main_hot_up div a:last-child{
+    border-top: 1px solid #aeaeae;
+}
+.home_warp .main_hot_up div img{
+    width: 50vw;
+    height: 25vw;
+}
