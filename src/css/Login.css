@@ -1,4 +1,4 @@
-.login header,.login_up header{
+.login header,.login_up header,.user header{
     background: #FF6666;
     display: flex;
     justify-content:space-between;
@@ -13,15 +13,15 @@
     padding-left: 5px;
 
 }
-.login header a,.login_up header a{
+.login header a,.login_up header a,.user header a{
     padding: 5px;
 }
-.login header a:first-child svg,.login_up header a:first-child svg{
+.login header a:first-child svg,.login_up header a:first-child svg,.user header a:first-child svg{
     margin-left: 10px;
     display: block;
 }
 
-.login header p,.login_up header p{
+.login header p,.login_up header p,.user header p{
     font-size: 16px
 }
 .login label button svg{
@@ -42,6 +42,11 @@
 .login label span,label button{
     flex-shrink:2
 }
+.login label .btn{
+    width: 10px;
+    height: 10px;
+
+}
 .login label input{
     line-height: 30px;
     /*width: 80%;*/
@@ -51,9 +56,9 @@
 .login label button{
     padding: 2px
 }
-.login .form_box div .submit{
+.login form .submit{
     display: block;
-    margin: 0 auto;
+    margin: 10px auto 0 auto;
     width: 80%;
     background: #FF6666;
     color: #fff;
@@ -65,10 +70,13 @@
     padding: 5px 0;
     border-bottom: 1px solid #d9d9d9;
 }
-.login .form_box div button svg{
+.login label .btn svg{
     padding: 2px;
     background:#d9d9d9;
     border-radius:50%;
+}
+.passwordShow{
+    margin-left: 10px;
 }
 .login div p{
     text-align: center;
@@ -92,5 +100,9 @@
 
 }
 .login .ant-tabs-nav-scroll{
-    padding-left: 12vw;
+    padding-left: 21vw;
+}
+.login form .login-up div:last-child label{
+    padding: 0 10vw;
+    margin-top: 1vw
 }

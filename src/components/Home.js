@@ -4,6 +4,9 @@ import Header from './main/Header'
 import MainTab from './main/Main-tab'
 import MainHot from './main/Main-hot'
 import MainAbout from './main/Main-about'
+import Footer from './main/Footer'
+
+
 class Home extends Component {
     render(){
         return(
@@ -12,7 +15,7 @@ class Home extends Component {
                 <MainTab/>
                 <MainHot/>
                 <MainAbout/>
-                <footer></footer>
+                <Footer/>
             </div>
         )
     }

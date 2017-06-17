@@ -10,7 +10,7 @@ import '../css/login-up.css'
 //此header样式在login.css中
 import {Link} from 'react-router-dom'
 import { connect } from 'react-redux'
-import { statusUser } from '../redux/action/Action'
+// import { signIn } from '../redux/action/Action'
 import axios from 'axios'
 const FormItem = Form.Item
 class RegistrationForm extends React.Component {
@@ -38,7 +38,7 @@ success = (text) => {
         }
         axios.post(`http://petapi.haoduoshipin.com/user/signup`,data).then(res=>{
             this.success(res.data.msg + ' 正在登录...')
-            this.props.dispatch(statusUser(res.data.userId,res.data.username))
+            sessionStorage.userId=JSON.stringify(res.data.userId)
         })
         .then(res=>{this.props.history.push('/')})
         .catch(err=>{this.warning(err.response.data.msg)})
@@ -48,7 +48,7 @@ success = (text) => {
   //注册信息提交 判断单选按钮是否点击
   handleConfirmBlur = (e) => {
     const value = e.target.value;
-    this.setState({ confirmDirty: this.state.confirmDirty || !!value });
+    this.setState({ confirmDirty: this.state.confirmDirty || !!value })
   }
   checkPassword = (rule, value, callback) => {
     const form = this.props.form;
@@ -65,16 +65,19 @@ success = (text) => {
     }
     callback()
   }
+  goBack(){
+       window.history.back()
+  }
+  //返回历史地址
   render() {
-      console.log(this.props)
     const { getFieldDecorator } = this.props.form;
     return (
       <div className='login_up'>
           <header>
-              <Link to='/'>
+              <a onClick={this.goBack.bind(this)}>
                   <svg  width="16px" height="16px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path fill="#000" d="M947.682335 121.44905c12.361539-12.362562 12.361539-32.567743 0-44.958958l-1.39579-1.362021c-12.357446-12.392238-32.562627-12.392238-44.925189-0.034792L534.278911 442.145026c-12.357446 12.357446-32.568766 12.357446-44.926212 0L122.175085 75.093279c-12.357446-12.357446-32.562627-12.357446-44.925189 0l-1.396813 1.430582c-12.356422 12.357446-12.356422 32.562627 0 44.924165l367.144868 367.017978c12.362562 12.357446 12.362562 32.564673 0 44.927235L75.853084 900.472616c-12.356422 12.357446-12.356422 32.56365 0 44.925189l1.396813 1.429559c12.362562 12.357446 32.567743 12.357446 44.925189 0l367.177614-367.086539c12.357446-12.356422 32.568766-12.356422 44.926212 0l367.081423 367.086539c12.362562 12.357446 32.567743 12.357446 44.925189-0.033769l1.39579-1.364067c12.361539-12.393261 12.328793-32.599466 0-44.957935L580.634682 533.394263c-12.362562-12.363585-12.362562-32.570813 0-44.927235L947.682335 121.44905 947.682335 121.44905zM947.682335 121.44905" />
                   </svg>
-              </Link>
+              </a>
               <p>注册</p>
               <Link to='login' style={{color:'#fff'}}>登录</Link>
           </header>
@@ -120,7 +123,7 @@ success = (text) => {
               </FormItem>
           </Form>
       </div>
-    );
+    )
   }
 }
 let mapStateToProps = state => ({

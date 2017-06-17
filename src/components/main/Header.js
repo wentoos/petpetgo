@@ -1,6 +1,8 @@
 import React,{Component} from 'react'
 import Carousel from 'antd/lib/carousel';
 import {Link} from 'react-router-dom'
+import { connect } from 'react-redux'
+import { addPosition } from '../../redux/action/Action'
 import '../../css/header.css'
 import banner from '../../image/banner.gif'
 import banner1 from '../../image/banner1.gif'
@@ -25,23 +27,31 @@ class Home extends Component {
 
     }
     componentDidMount() {
-    window.addEventListener('scroll', this.orderScroll.bind(this));
+        this.props.addPosition()
+        window.addEventListener('scroll', this.orderScroll.bind(this));
     }
 
     orderScroll() {
-        if(document.body.scrollTop>=135){
-            this.setState({show:'none'})
-            this.setState({width:100,bgc:'#d9d9d9',boxBgc:'white'})
-        }else{
-            this.setState({width:74,bgc:'white',boxBgc:''})
-            this.state.width === 74?this.setState({show:'block'}):this.setState({show:'none'})
-        }
+        // if(document.body.scrollTop>=135){
+        //     this.setState({show:'none'})
+        //     this.setState({width:100,bgc:'#d9d9d9',boxBgc:'white'})
+        // }else{
+        //     this.setState({width:74,bgc:'white',boxBgc:''})
+        //     this.state.width === 74?this.setState({show:'block'}):this.setState({show:'none'})
+        // }
     }
     render(){
+        let position=this.props.position
         return(
             <header>
                 <div className='top clearfix' style={{background:this.state.boxBgc}}>
-                    <a className='clearfix' style={{display:this.state.show}}>{gps}<span>定位中...</span>{right}</a>
+                    <a className='clearfix' style={{display:this.state.show}}>{gps}<span>{
+                        position.city?
+                            <span>{position.street}.......</span>
+                        :position.errorPosition?
+                        position.errorPosition
+                        :'加载中...'
+                    }</span>{right}</a>
                     <Link to='/search' style={{width:this.state.width+'%',background:this.state.bgc}}>{search}请输入商家名称</Link>
                 </div>
                 <Carousel autoplay >
@@ -54,4 +64,7 @@ class Home extends Component {
         )
     }
 }
-export default Home
+const mapStateToProps=store=>({
+  position:store.position
+})
+export default connect(mapStateToProps,{addPosition})(Home)

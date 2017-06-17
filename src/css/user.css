@@ -1,0 +1,20 @@
+/*.user_main a{
+    display: block;
+    width: 100vw;
+    line-height: 10vh;
+    text-align: center;
+    font-size: 16px;
+    color:#000000;
+    border-top: 1px solid #e1e1e1
+}*/
+#out{
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    padding-right: 10px;
+    font-size: 20px
+}
+.login header p{
+    margin-right: 45vw;
+}
