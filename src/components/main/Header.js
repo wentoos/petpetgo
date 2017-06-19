@@ -49,7 +49,7 @@ class Home extends Component {
                         position.city?
                             <span>{position.street}.......</span>
                         :position.errorPosition?
-                        position.errorPosition
+                            position.errorPosition
                         :'加载中...'
                     }</span>{right}</a>
                     <Link to='/search' style={{width:this.state.width+'%',background:this.state.bgc}}>{search}请输入商家名称</Link>

@@ -1,54 +1,77 @@
 import React, { Component } from 'react'
-import { Modal, Button ,Icon} from 'antd';
-import {Link} from 'react-router-dom'
+import { Modal, Button } from 'antd';
+import { connect } from 'react-redux'
+import { signIn } from '../../redux/action/Action'
 import '../../css/user.css'
 import Footer from './Footer'
 class User extends Component {
     constructor(){
         super()
-        this.state ={
-            visible: false
-        }
+        this.state = { visible: false }
+    }
+    componentWillMount(){
+        this.props.dispatch(signIn(JSON.parse(sessionStorage.userId),'3',this.props))
     }
     goBack(){
         window.history.back()
     }
+
     showModal(){
-        this.setState({visible: true})
+        this.setState({
+          visible: true,
+        })
     }
-    hideModal(){
-        this.setState({visible: false})
-        sessionStorage.userId=""
+    handleOk(){
+        this.setState({
+          visible: false,
+        })
+        sessionStorage.userId=''
         this.props.history.push('/')
     }
-
+    handleCancel(e){
+        this.setState({
+          visible: false,
+        });
+    }
     render() {
-
         return (
             <div className='user'>
                 <header>
                     <a onClick={this.goBack.bind(this)}>
-                        <svg  width="16px" height="16px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path fill="#000" d="M947.682335 121.44905c12.361539-12.362562 12.361539-32.567743 0-44.958958l-1.39579-1.362021c-12.357446-12.392238-32.562627-12.392238-44.925189-0.034792L534.278911 442.145026c-12.357446 12.357446-32.568766 12.357446-44.926212 0L122.175085 75.093279c-12.357446-12.357446-32.562627-12.357446-44.925189 0l-1.396813 1.430582c-12.356422 12.357446-12.356422 32.562627 0 44.924165l367.144868 367.017978c12.362562 12.357446 12.362562 32.564673 0 44.927235L75.853084 900.472616c-12.356422 12.357446-12.356422 32.56365 0 44.925189l1.396813 1.429559c12.362562 12.357446 32.567743 12.357446 44.925189 0l367.177614-367.086539c12.357446-12.356422 32.568766-12.356422 44.926212 0l367.081423 367.086539c12.362562 12.357446 32.567743 12.357446 44.925189-0.033769l1.39579-1.364067c12.361539-12.393261 12.328793-32.599466 0-44.957935L580.634682 533.394263c-12.362562-12.363585-12.362562-32.570813 0-44.927235L947.682335 121.44905 947.682335 121.44905zM947.682335 121.44905" />
-                        </svg>
+                        <svg width="16px" height="16.00px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path fill="#000" d="M280.992 533.504l416.672 416.768c12.544 12.48 32.8 12.512 45.312 0 12.544-12.512 12.544-32.832 0.032-45.312l-373.504-373.568c0 0 0.736 0.736-10.496-10.496-11.232-11.2 1.088-21.312 1.088-21.312l10.688-10.688 369.952-369.952c12.544-12.512 12.544-32.736 0-45.248-12.512-12.512-32.768-12.544-45.28 0l-412.032 412c-0.448 0.448-0.768 0.832-1.152 1.248-0.512 0.448-0.896 0.8-1.28 1.216C268.48 500.672 268.48 521.024 280.992 533.504z" /></svg>
                     </a>
-                    <p>个人中心</p>
-
-                    <Button type="primary" onClick={this.showModal.bind(this)} id='out'><Icon type="ellipsis" /></Button>
+                    <p>用户</p>
+                    <Button onClick={this.showModal.bind(this)} id='out'>退出</Button>
                 </header>
                 <div className='user_main'>
-                    <div className='userinfo'>
-                        <div><img/></div>
-                        <p>名字</p>
+                    <div>
+                        <div className='user_name'>
+                            <img src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497894305453&di=db8899ceeea2adaceba3e487d98f19cb&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20160927%2F035d8f26db3d4d7fa85385b232e5623b.jpg'/>
+                            <p>{this.props.userName}</p>
+                        </div>
                     </div>
-                    <div></div>
+
+                    <a>我的收藏</a>
+                    <a>我的订单</a>
+                    <a>我的钱包</a>
+                    <a>我的评价</a>
+                    <a>我的地址</a>
                 </div>
-                <Modal title="提示" visible={this.state.visible} onOk={this.hideModal.bind(this)} onCancel={this.hideModal.bind(this)} okText="Ok" cancelText="取消" >
-                    <p>确认要退出吗...</p>
-                </Modal>
                 <Footer />
+                <Modal
+                    title="提示"
+                    visible={this.state.visible}
+                    onOk={this.handleOk.bind(this)}
+                    onCancel={this.handleCancel.bind(this)}
+                >
+                    <p>确定要退出吗？？</p>
+                </Modal>
             </div>
 
         )
     }
 }
-export default User
+let mapStateToProps=(state)=>({
+    userName:state.userName
+})
+export default connect(mapStateToProps)(User)

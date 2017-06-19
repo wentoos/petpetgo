@@ -8,13 +8,13 @@ function userReducer(state = {},action){
             return state
     }
 }
-let userState=false
-function userState(state = userState,action){
-    switch (action.type) {
-        case 'USER':
-            return state = true
-        default:
 
+function userName(state = '',action){
+    switch (action.type) {
+        case 'USERNAME':
+            return action.username
+        default:
+            return state
     }
 }
 function positionReducer(state={},action){
@@ -32,11 +32,19 @@ function shopReducer (state=[],action){
   }
 }
 
+function ordersReducer(state={},action){
+    switch (action.type) {
+        case 'ORDER':
+            return state
+        default:
+            return state
+    }
+}
 const rootReducer = combineReducers({
     user:userReducer,
     shops:shopReducer,
     position:positionReducer,
-    userState
+    userName
 })
 
 

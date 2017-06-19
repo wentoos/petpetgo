@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './css/App.css';
 import Login from './components/Login'
+import Orders from './components/main/Orders'
 
 import Home from './components/Home'
 import Search from './components/main/Search'
@@ -14,6 +15,7 @@ class App extends Component {
             <div>
                 <Route exact path='/' component={Home}/>
                 <Route  path='/login' component={Login}/>
+                <Route  path='/orders' component={Orders}/>
                 <Route  path='/search' component={Search}/>
                 <Route  path='/user' component={User}/>
 

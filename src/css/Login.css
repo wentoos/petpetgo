@@ -1,4 +1,4 @@
-.login header,.login_up header,.user header{
+.login header,.user header,.orders_warp header{
     background: #FF6666;
     display: flex;
     justify-content:space-between;
@@ -13,16 +13,16 @@
     padding-left: 5px;
 
 }
-.login header a,.login_up header a,.user header a{
+.login header a,.user header a,.orders_warp header a{
     padding: 5px;
 }
-.login header a:first-child svg,.login_up header a:first-child svg,.user header a:first-child svg{
+.login header a:first-child svg,.user header a:first-child svg,.orders_warp header a:first-child svg{
     margin-left: 10px;
     display: block;
 }
 
-.login header p,.login_up header p,.user header p{
-    font-size: 16px
+.login header p,.user header p,.orders_warp header p{
+    font-size: 16px;
 }
 .login label button svg{
     width: 10px;

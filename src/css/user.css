@@ -1,20 +1,41 @@
-/*.user_main a{
+.user_main .userinfo img{
     display: block;
-    width: 100vw;
-    line-height: 10vh;
-    text-align: center;
-    font-size: 16px;
-    color:#000000;
-    border-top: 1px solid #e1e1e1
-}*/
+    width: 20vw;
+    border-radius: 50%
+}
 #out{
     background: none;
     border: none;
     outline: none;
     padding: 0;
     padding-right: 10px;
-    font-size: 20px
+
+    color:white
 }
 .login header p{
     margin-right: 45vw;
+}
+.user_main .user_name{
+    height: 25vw;
+    padding: 2vw;
+    border-bottom: 5px solid #f1f1f1;
+}
+.user_main .user_name img{
+    display: block;
+    height: 15vw;
+    width: 15vw;
+    margin: 0 auto ;
+    border-radius: 2vw;
+}
+.user_main .user_name p{
+    text-align: center;
+    border-bottom: 5px;
+}
+.user_main > a{
+    display: block;
+    color:black;
+    line-height: 15vw;
+    text-align: center;
+    font-size: 16px;
+    border-bottom: 1px solid #f1f1f1;
 }
