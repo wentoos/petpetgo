@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../../css/main-about.css'
 import { connect } from 'react-redux'
+import {Link} from 'react-router-dom'
 import { searchData } from '../../redux/action/Action'
 class MainAbout extends Component {
     componentWillMount(){
@@ -13,7 +14,7 @@ class MainAbout extends Component {
           <p>附近商家</p>
           <div>
               {
-                  this.props.shops.map(item=><div key={item._id}><p>{item.name}</p></div>)
+                  this.props.shops.map(item=><div key={item._id}><Link to={{pathname:`/commodity/${item._id}`,title:item.name}} >{item.name}</Link></div>)
               }
           </div>
       </div>

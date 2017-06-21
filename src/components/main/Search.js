@@ -34,7 +34,8 @@ class Search extends Component {
                     <div className='main'>
                         <div>
                             <div>
-                                {this.props.shops.map(item=>(
+                                {
+                                    this.props.shops.map(item=>(
                                     <div key={item._id} dangerouslySetInnerHTML={{__html:item.name.replace(reg,`<span style='color:red'>${this.state.key}</span>`)
                                     }}/>
                                 ))}

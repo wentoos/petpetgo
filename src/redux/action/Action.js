@@ -1,15 +1,7 @@
 import axios from 'axios'
 import $ from 'jquery'
-import message from 'antd/lib/message';
-// const warning=(text)=>{
-//     message.config({ top: 47, duration: 1.8 })
-//     message.warning(text)
-// }
-// //警告信息提示框
-// const success = (text) => {
-//     message.config({ top: 47})
-//     message.success(text,1.5)
-// }
+
+
 export const addPosition=()=>(
   dispatch=>{
       let showPosition=(position)=>{
@@ -53,7 +45,9 @@ export const signIn=(data,type,props)=>{
             case '3':
                 axios.get(`http://petapi.haoduoshipin.com/user/${data}`)
                 .then(res=>{dispatch({type:'USERNAME',username:res.data.user.username})})
-            default: return false
+                break;
+            default:
+                return false
         }
     }
 }
@@ -76,3 +70,26 @@ export const searchData =(key,type)=>(
       }
   }
 )
+//搜索店铺
+export const orderAction =(userId)=>(
+    dispatch=>{
+        axios.get(`http://petapi.haoduoshipin.com/orders`)
+        .then(res=>dispatch({type:'ORDER',orders:{orders:res.data.orders,userId}}))
+    }
+)
+export const shopAction =(url)=>(
+    dispatch=>{
+        axios.get(`http://petapi.haoduoshipin.com/shop/${url}/cats`)
+        .then(res=>dispatch({type:'COMMODITY',data:res}))
+    }
+)
+export const titleAction=(title,type)=>{
+    switch (type) {
+        case 'TITLE':
+            return {type:'TITLE',title}
+        case 'NULL':
+            return {type:'NULL',title}
+        default: return false
+    }
+
+}

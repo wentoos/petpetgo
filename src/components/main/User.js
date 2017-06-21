@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Modal, Button } from 'antd';
+import Modal from 'antd/lib/modal'
+import  Button  from 'antd/lib/button'
 import { connect } from 'react-redux'
 import { signIn } from '../../redux/action/Action'
 import '../../css/user.css'
@@ -46,7 +47,7 @@ class User extends Component {
                 <div className='user_main'>
                     <div>
                         <div className='user_name'>
-                            <img src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497894305453&di=db8899ceeea2adaceba3e487d98f19cb&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20160927%2F035d8f26db3d4d7fa85385b232e5623b.jpg'/>
+                            <img src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497894305453&di=db8899ceeea2adaceba3e487d98f19cb&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20160927%2F035d8f26db3d4d7fa85385b232e5623b.jpg' alt='touxiang'/>
                             <p>{this.props.userName}</p>
                         </div>
                     </div>

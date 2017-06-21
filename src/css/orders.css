@@ -1,0 +1,50 @@
+.orders_warp .orders{
+    display: flex;
+    align-items: center;
+    padding: 1vw 2vw;
+    border-top: 1px solid #f1f1f1;
+}
+.orders_warp .orders img{
+    display: block;
+    height: 10vw;
+    width: 10vw;
+    border-radius: 1vw;
+}
+.orders_tab{
+    background: #f1f1f1;
+    padding: 5px 0;
+
+
+}
+
+.orders_tab>div{
+    padding: 2vw;
+    margin-bottom: 5px;
+    background: white;
+}
+.orders_name,.orders_price{
+    width: 20vw;
+    margin-left: 2vw
+}
+.orders_num{
+    flex-grow:2;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.orders_num a{
+    font-size: 14px;
+    height: 15px;
+    width: 15px;
+    text-align: center;
+    line-height: 1;
+    color: white;
+    background: #CC3333;
+    border-radius: 50%;
+}
+.orders_num a:first-child{
+    background:#999966
+}
+.orders_num a:hover{
+    color: white;
+}

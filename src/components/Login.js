@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import '../css/Login.css'
 import Tabs from 'antd/lib/tabs';
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import { connect } from 'react-redux'
 import { signIn } from '../redux/action/Action'
 import  Checkbox  from 'antd/lib/checkbox'
