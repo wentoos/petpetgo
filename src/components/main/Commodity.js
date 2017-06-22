@@ -1,24 +1,41 @@
-import React, { Component } from 'react';
-import '../../css/main-about.css'
+import React, { Component } from 'react'
+import '../../css/commodity.css'
 import { connect } from 'react-redux'
-import { shopAction } from '../../redux/action/Action'
+import { shopAction ,ALLAction} from '../../redux/action/Action'
 import { titleAction } from '../../redux/action/Action'
 class Commodity extends Component {
-    componentDidMount(){
+    state={
+        catch:false,
+        num:0
+    }
+    componentWillMount(){
         let url=this.props.match.url.slice(11)
         this.props.dispatch(shopAction(url))
-
+        this.props.dispatch(ALLAction())
         if(this.props.location.title){
             this.props.dispatch(titleAction(this.props.location.title,'TITLE'))
             sessionStorage.shoptitle=JSON.stringify(this.props.location.title)
         }else {
             this.props.dispatch(titleAction(null,'NULL'))
         }
+
     }
+
     goBack(){
         window.history.back()
     }
+    changeQuantity(i,item){
+        if(this.state.num>=0){
+            this.setState({num:this.state.num + i})
+        }
+        this.props.dispatch({type:'ALTER_NUMBER',i,data:{_id:item._id,name:item.name,price:item.price,poster:item.poster}})
+
+    }
+    switchCats(item){
+        this.props.dispatch({type:'CURRENTCATS',currentcat:{name:item.name,id:item._id}})
+    }
     render() {
+        console.log(this.props);
         return (
             <div className='commodity_warp'>
                 <header>
@@ -27,18 +44,48 @@ class Commodity extends Component {
                     </a>
                     <p>{this.props.title}</p>
                 </header>
+                <div className='commodity_main'>
+                    <ul>
+                        {
+                            this.props.commodity.msg==='获取分类成功' &&
+                            this.props.commodity.cats.length?this.props.commodity.cats.map(
+                                item=><li key={item._id} onClick={this.switchCats.bind(this,item)}>{item.name}</li>
+                            ):
+                            <div className='commodity_out'>获取信息失败...</div>
+                        }
+                    </ul>
+                    {   this.props.one && this.props.commodity.msg==='获取分类成功' &&
+                        this.props.commodity.cats.length?
+                            this.props.all.map(
+                                item=>(item.cat === this.props.one[0] ?
+                                    <div key={item._id} className="cat_tab">
+                                        <img src={item.poster} alt='img'/>
+                                        <h4>{item.name}</h4>
+                                        <p>
+                                            <span style={{color:'red'}}>￥{item.price}</span>
+                                            <span >
+                                                <button onClick={this.changeQuantity.bind(this,-1,item)}>-</button>
+                                                <b>{this.state.num}</b>
+                                                <button onClick={this.changeQuantity.bind(this,+1,item)}>+</button>
+                                            </span>
+                                        </p>
+                                    </div>:null)
 
-                {
-                    this.props.commodity.length>0?
-                        this.props.commodity.map(item=><div>{item.name}</div>):
-                        <div>没有相关商品偶</div>
-                }
+                            ):null
+                    }
+
+                </div>
+
             </div>
         )
     }
 }
 let mapStateToProps = state => ({
     commodity:state.commodity,
-    title:state.title
+    title:state.title,
+    all:state.all,
+    one:state.one,
+    nums:state.nums
+
 })
 export default connect(mapStateToProps)(Commodity)

@@ -77,11 +77,17 @@ export const orderAction =(userId)=>(
         .then(res=>dispatch({type:'ORDER',orders:{orders:res.data.orders,userId}}))
     }
 )
-export const shopAction =(url)=>(
+export const shopAction =(url,type)=>(
     dispatch=>{
         axios.get(`http://petapi.haoduoshipin.com/shop/${url}/cats`)
-        .then(res=>dispatch({type:'COMMODITY',data:res}))
+            .then(res=>dispatch({type:'COMMODITY',data:res.data})).then(res=>dispatch({type:'ONE',data:res.data.cats}))
     }
+)
+export const ALLAction =()=>(
+    dispatch=>{
+        axios.get(`http://petapi.haoduoshipin.com/products`)
+            .then(res=>dispatch({type:'ALL',data:res.data}))
+        }
 )
 export const titleAction=(title,type)=>{
     switch (type) {
@@ -91,5 +97,4 @@ export const titleAction=(title,type)=>{
             return {type:'NULL',title}
         default: return false
     }
-
 }

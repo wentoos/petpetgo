@@ -1,0 +1,68 @@
+.commodity_out{
+    height: 80vh;
+    width: 100vw;
+    line-height: 80vh;
+    text-align: center;
+    font-size: 14px;
+    background: url('../image/ku.svg') no-repeat;
+    background-position:center 35vw;
+}
+.commodity_main {
+    background: #dbdbdb;
+    padding: 5px 0;
+}
+.commodity_main ul {
+    display: flex;
+    padding: 0 0 1vw 0;
+}
+.commodity_main ul li{
+    background:white;
+    width: 15vw;
+    text-align: center;
+    font-size: 14px;
+
+}
+.commodity_main ul li:hover{
+    background: #dbdbdb;
+}
+.commodity_main .cat_tab{
+    display: flex;
+    background: white;
+    align-items: center;
+    padding: 0 1vw;
+    margin-bottom: 1px;
+}
+.commodity_main .cat_tab img{
+    height: 20vw;
+    width: 20vw;
+    overflow: hidden;
+}
+.commodity_main .cat_tab p{
+    font-size: 14px;
+    flex-grow: 2;
+}
+.commodity_main .cat_tab p span{
+    display: inline-block;
+}
+.commodity_main .cat_tab p span:last-child{
+    margin-left: 10vw;
+}
+.commodity_main .cat_tab p span:first-child{
+    width: 15vw;
+    display: inline-block;
+    text-align: center;
+}
+.commodity_main .cat_tab p span:last-child button{
+    font-size: 16px;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    width: 24px;
+    outline: none;
+    margin: 0 2vw;
+}
+.commodity_main .cat_tab h4{
+    width: 20vw;
+    text-align: center;
+    margin-left: 5vw;
+}
