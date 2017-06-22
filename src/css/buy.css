@@ -1,0 +1,22 @@
+.main_buy{
+    background: #CCFFCC;
+    height: 15vw;
+    width: 100vw;
+    position: fixed;
+    bottom:0;
+    display: flex;
+}
+.main_buy p{
+    width: 70vw;
+}
+.main_buy a{
+    width: 30vw;
+    background: #CC3333;
+    text-align: center;
+    line-height: 15vw;
+    font-size: 16px;
+    color:white
+}
+.main_buy a:hover{
+    color:white
+}

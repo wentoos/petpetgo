@@ -64,14 +64,7 @@ function titleReducer(state='',action){
 
     }
 }
-function allReducer(state=[],action){
-    switch (action.type) {
-        case 'ALL':
-            return action.data.products
-        default:
-        return state
-    }
-}
+
 function oneReducer(state=[],action){
     switch (action.type) {
         case 'ONE':
@@ -82,16 +75,25 @@ function oneReducer(state=[],action){
         return state
     }
 }
-
-function numsReducer(state=[],action){
-    console.log(action);
+function allReducer(state=[],action){
     switch (action.type) {
+        case 'ALL':
+            return action.data.products.map(
+                function a(item){
+                        item.num=0
+                        return item
+                }
+            )
         case 'ALTER_NUMBER':
-            return [...state,{...action.data,num:0+action.i}]
+            let a = action.all.findIndex(function shop(item){
+                return item._id === action.id
+            })
+            return [...action.all.slice(0,a),{...action.all[a],num:action.all[a].num+action.i},...action.all.slice(a+1,action.all.length+1)]
         default:
         return state
     }
 }
+
 const rootReducer = combineReducers({
     user:userReducer,
     shops:shopReducer,
@@ -101,8 +103,7 @@ const rootReducer = combineReducers({
     commodity:CommodityReducer,
     title:titleReducer,
     all:allReducer,
-    one:oneReducer,
-    nums:numsReducer
+    one:oneReducer
 
 })
 export default rootReducer

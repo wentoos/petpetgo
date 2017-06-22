@@ -3,10 +3,12 @@ import '../../css/commodity.css'
 import { connect } from 'react-redux'
 import { shopAction ,ALLAction} from '../../redux/action/Action'
 import { titleAction } from '../../redux/action/Action'
+import Buy from './Buy'
 class Commodity extends Component {
     state={
         catch:false,
-        num:0
+        num:0,
+        style:0
     }
     componentWillMount(){
         let url=this.props.match.url.slice(11)
@@ -24,18 +26,19 @@ class Commodity extends Component {
     goBack(){
         window.history.back()
     }
-    changeQuantity(i,item){
-        if(this.state.num>=0){
-            this.setState({num:this.state.num + i})
+    changeQuantity(i,id){
+        function isBigEnough(item) {
+            return item._id === id
         }
-        this.props.dispatch({type:'ALTER_NUMBER',i,data:{_id:item._id,name:item.name,price:item.price,poster:item.poster}})
+
+        this.props.dispatch({type:'ALTER_NUMBER',i,id,all:this.props.all})
 
     }
-    switchCats(item){
+    switchCats(item,index){
         this.props.dispatch({type:'CURRENTCATS',currentcat:{name:item.name,id:item._id}})
+        this.setState({style:index})
     }
     render() {
-        console.log(this.props);
         return (
             <div className='commodity_warp'>
                 <header>
@@ -49,7 +52,8 @@ class Commodity extends Component {
                         {
                             this.props.commodity.msg==='获取分类成功' &&
                             this.props.commodity.cats.length?this.props.commodity.cats.map(
-                                item=><li key={item._id} onClick={this.switchCats.bind(this,item)}>{item.name}</li>
+                                (item,index)=>
+                                    <li key={item._id} style={{background:this.state.style===index?'#CCCCCC':'white'}} onClick={this.switchCats.bind(this,item,index)}>{item.name}</li>
                             ):
                             <div className='commodity_out'>获取信息失败...</div>
                         }
@@ -64,18 +68,17 @@ class Commodity extends Component {
                                         <p>
                                             <span style={{color:'red'}}>￥{item.price}</span>
                                             <span >
-                                                <button onClick={this.changeQuantity.bind(this,-1,item)}>-</button>
-                                                <b>{this.state.num}</b>
-                                                <button onClick={this.changeQuantity.bind(this,+1,item)}>+</button>
+                                                <button onClick={this.changeQuantity.bind(this,-1,item._id)}>-</button>
+                                                <b>{item.num}</b>
+                                                <button onClick={this.changeQuantity.bind(this,+1,item._id)}>+</button>
                                             </span>
                                         </p>
-                                    </div>:null)
-
+                                    </div>:null
+                                )
                             ):null
                     }
-
                 </div>
-
+                <Buy/>
             </div>
         )
     }
@@ -84,8 +87,7 @@ let mapStateToProps = state => ({
     commodity:state.commodity,
     title:state.title,
     all:state.all,
-    one:state.one,
-    nums:state.nums
+    one:state.one
 
 })
 export default connect(mapStateToProps)(Commodity)
