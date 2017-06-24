@@ -31,7 +31,7 @@ export const signIn=(data,type,props)=>{
                     dispatch({type:'USER',user:res.data})
                     sessionStorage.userId=JSON.stringify(res.data.userId)
                     alert(res.data.msg)
-                }).then(res=>props.history.push('/user')).catch(err=>{alert( JSON.parse(err.request.response).msg)})
+                }).then(res=>window.history.back(-2)).catch(err=>{alert( JSON.parse(err.request.response).msg)})
                 break;
             case '2':
                     axios.post('http://petapi.haoduoshipin.com/user/signup',data)
@@ -39,7 +39,7 @@ export const signIn=(data,type,props)=>{
                       dispatch({type:'USER',user:res.data})
                       sessionStorage.userId=JSON.stringify(res.data.userId)
                       alert(res.data.msg)
-                    }).then(res=>props.history.push('/user'))
+                    }).then(res=>window.history.back(-2))
                     .catch(err=>{alert( JSON.parse(err.request.response).msg)})
                 break;
             case '3':

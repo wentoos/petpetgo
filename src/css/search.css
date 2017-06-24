@@ -13,9 +13,7 @@
     flex-grow:2;
     overflow-y: auto;
 }
-.search_warp .main{
 
-}
 .search_warp header a{
     display: flex;
     align-items: center;
@@ -32,10 +30,13 @@
     top:15px;
 }
 .search_warp header div{
-    border: 1px solid red;
     border-radius: 13px;
     margin: 0 10px;
     flex-grow: 2;
+    background: white
+}
+.search_warp header{
+    background: #CCCCCC
 }
 .search_warp header input,.search_warp header button{
     border: 0;
@@ -50,4 +51,17 @@
     display: block;
     width: 100%;
     line-height: 24px;
+}
+.search_warp div a{
+    display: block;
+    line-height: 10vw;
+    font-size: 14px;
+    color:#333333;
+    padding-left: 10vw;
+    background: #FFF;
+    margin: 1vw 0;
+
+}
+.search_warp .main{
+    background: #ccc
 }

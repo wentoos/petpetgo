@@ -48,3 +48,6 @@
 .orders_num a:hover{
     color: white;
 }
+.orders_tab{
+    padding-bottom: 20vw;
+}

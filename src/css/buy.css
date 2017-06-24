@@ -8,14 +8,40 @@
 }
 .main_buy p{
     width: 70vw;
+    text-align: center;
+    line-height: 15vw;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
 }
-.main_buy a{
+.main_buy p svg{
+    margin:0 3vw
+}.main_buy p span{
+    flex-grow: 2;
+    text-align: center;
+}
+.main_buy i{
+    position: absolute;
+    left:10vw;
+    top:1vw;
+    width: 4vw;
+    line-height: 4vw;
+    text-align: center;
+    border-radius: 50%;
+    background: red;
+    color: white;
+}
+.main_buy a,.main_buy b{
     width: 30vw;
     background: #CC3333;
     text-align: center;
     line-height: 15vw;
     font-size: 16px;
     color:white
+}
+.main_buy b{
+    background: none;
+    color:rgba(0, 0, 0, 0.65)
 }
 .main_buy a:hover{
     color:white

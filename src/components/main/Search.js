@@ -8,6 +8,7 @@ class Search extends Component {
         super()
         this.search=this.search.bind(this)
         this.state={
+            catch:false,
             key:''
         }
     }
@@ -18,9 +19,14 @@ class Search extends Component {
             this.setState({key:_name})
             this.props.searchData(key,'SEARCH')
         }
+        if(this.props.shops&&_name!==''){
+                this.setState({catch:true})
+        }else {
+            this.setState({catch:false})
+        }
     }
     render() {
-        let reg=new RegExp(this.state.key,'g')
+        //let reg=new RegExp(this.state.key,'g')
         return (
             <div className='search_warp'>
                 <header>
@@ -35,10 +41,14 @@ class Search extends Component {
                         <div>
                             <div>
                                 {
-                                    this.props.shops.map(item=>(
-                                    <div key={item._id} dangerouslySetInnerHTML={{__html:item.name.replace(reg,`<span style='color:red'>${this.state.key}</span>`)
-                                    }}/>
-                                ))}
+                                    this.state.catch?
+                                        this.props.shops.map(item=>(
+                                            <Link to={`/commodity/${item._id}`} key={item._id}>
+                                                {item.name}
+                                            </Link>
+                                        )
+                                        ):null
+                                }
                             </div>
                         </div>
                     </div>

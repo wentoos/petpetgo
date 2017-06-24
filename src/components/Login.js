@@ -117,7 +117,7 @@ class Login extends Component {
         //设置按钮不能点击
     }
     goBack(){
-        window.history.back()
+        window.history.back(-2)
     }
     //返回历史地址
     //以下是注册

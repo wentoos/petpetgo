@@ -32,6 +32,7 @@ class Commodity extends Component {
         }
 
         this.props.dispatch({type:'ALTER_NUMBER',i,id,all:this.props.all})
+        this.props.dispatch({type:'BUY_NUMBER',i,id,all:this.props.all})
 
     }
     switchCats(item,index){
@@ -68,9 +69,9 @@ class Commodity extends Component {
                                         <p>
                                             <span style={{color:'red'}}>￥{item.price}</span>
                                             <span >
-                                                <button onClick={this.changeQuantity.bind(this,-1,item._id)}>-</button>
-                                                <b>{item.num}</b>
-                                                <button onClick={this.changeQuantity.bind(this,+1,item._id)}>+</button>
+                                                <button onClick={this.changeQuantity.bind(this,-1,item._id)} style={{opacity:item.num>0?'1':'0'}}>-</button>
+                                                <b style={{opacity:item.num>0?'1':'0'}}>{item.num}</b>
+                                                <button onClick={this.changeQuantity.bind(this,+1,item._id)} >+</button>
                                             </span>
                                         </p>
                                     </div>:null
@@ -78,7 +79,7 @@ class Commodity extends Component {
                             ):null
                     }
                 </div>
-                <Buy/>
+                <Buy push={this.props}/>
             </div>
         )
     }

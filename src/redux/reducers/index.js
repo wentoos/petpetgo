@@ -88,12 +88,22 @@ function allReducer(state=[],action){
             let a = action.all.findIndex(function shop(item){
                 return item._id === action.id
             })
-            return [...action.all.slice(0,a),{...action.all[a],num:action.all[a].num+action.i},...action.all.slice(a+1,action.all.length+1)]
+            return [...action.all.slice(0,a),{...action.all[a],num:action.all[a].num===0&&action.i=== -1? 0 : action.all[a].num+action.i},...action.all.slice(a+1,action.all.length)]
         default:
         return state
     }
 }
-
+function buyReducer(state=[],action){
+    switch (action.type) {
+        case 'BUY_NUMBER':
+            let a = action.all.findIndex(function shop(item){
+                return item._id === action.id
+            })
+            return [...action.all.slice(0,a),{...action.all[a],num:action.all[a].num+action.i},...action.all.slice(a+1,action.all.length)].filter(item=>item.num > 0)
+        default:
+        return state
+    }
+}
 const rootReducer = combineReducers({
     user:userReducer,
     shops:shopReducer,
@@ -103,7 +113,8 @@ const rootReducer = combineReducers({
     commodity:CommodityReducer,
     title:titleReducer,
     all:allReducer,
-    one:oneReducer
+    one:oneReducer,
+    buy:buyReducer
 
 })
 export default rootReducer

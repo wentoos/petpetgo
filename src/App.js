@@ -7,6 +7,7 @@ import Home from './components/Home'
 import Search from './components/main/Search'
 import User from './components/main/User'
 import Commodity from './components/main/Commodity'
+import Buys from './components/main/Buys'
 
 import {BrowserRouter as Router,Route } from 'react-router-dom'
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
                 <Route  path='/search' component={Search}/>
                 <Route  path='/user' component={User}/>
                 <Route  path='/commodity/:id' component={Commodity}/>
+                <Route  path='/buys' component={Buys}/>
 
             </div>
         </Router>

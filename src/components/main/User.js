@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Modal from 'antd/lib/modal'
-import  Button  from 'antd/lib/button'
+
 import { connect } from 'react-redux'
 import { signIn } from '../../redux/action/Action'
 import '../../css/user.css'
@@ -29,7 +29,7 @@ class User extends Component {
         sessionStorage.userId=''
         this.props.history.push('/')
     }
-    handleCancel(e){
+    handleCancel(){
         this.setState({
           visible: false,
         });
@@ -42,7 +42,7 @@ class User extends Component {
                         <svg width="16px" height="16.00px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path fill="#000" d="M280.992 533.504l416.672 416.768c12.544 12.48 32.8 12.512 45.312 0 12.544-12.512 12.544-32.832 0.032-45.312l-373.504-373.568c0 0 0.736 0.736-10.496-10.496-11.232-11.2 1.088-21.312 1.088-21.312l10.688-10.688 369.952-369.952c12.544-12.512 12.544-32.736 0-45.248-12.512-12.512-32.768-12.544-45.28 0l-412.032 412c-0.448 0.448-0.768 0.832-1.152 1.248-0.512 0.448-0.896 0.8-1.28 1.216C268.48 500.672 268.48 521.024 280.992 533.504z" /></svg>
                     </a>
                     <p>用户</p>
-                    <Button onClick={this.showModal.bind(this)} id='out'>退出</Button>
+                    <a onClick={this.showModal.bind(this)} id='out'>退出</a>
                 </header>
                 <div className='user_main'>
                     <div>

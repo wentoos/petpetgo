@@ -20,7 +20,7 @@ class Home extends Component {
         super()
         this.state={
             show:'block',
-            width:74,
+            width:72,
             bgc:'white',
             boxBgc:'',
         }
@@ -34,10 +34,10 @@ class Home extends Component {
     orderScroll() {
         // if(document.body.scrollTop>=135){
         //     this.setState({show:'none'})
-        //     this.setState({width:100,bgc:'#d9d9d9',boxBgc:'white'})
+        //     this.setState({width:100,bgc:'#d9d9d9',boxBgc:'#FFFFCC'})
         // }else{
-        //     this.setState({width:74,bgc:'white',boxBgc:''})
-        //     this.state.width === 74?this.setState({show:'block'}):this.setState({show:'none'})
+        //     this.setState({width:72,bgc:'#FFFFCC',boxBgc:''})
+        //     this.state.width === 72?this.setState({show:'block'}):this.setState({show:'none'})
         // }
     }
     render(){
