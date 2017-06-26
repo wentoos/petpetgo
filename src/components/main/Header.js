@@ -28,23 +28,22 @@ class Home extends Component {
     }
     componentDidMount() {
         this.props.addPosition()
-        this.doy.addEventListener('scroll', this.orderScroll.bind(this))
+        //this.doy.addEventListener('scroll', this.orderScroll.bind(this))
     }
 
-    orderScroll() {
-        if(document.body.scrollTop>=135){
-            this.setState({show:'none'})
-            this.setState({width:100,bgc:'#d9d9d9',boxBgc:'#FFFFCC'})
-        }else{
-            this.setState({width:72,bgc:'#FFFFCC',boxBgc:''})
-            this.state.width === 72?this.setState({show:'block'}):this.setState({show:'none'})
-        }
-        console.log('scroll')
-    }
-    componentWillUnmount(){
-        console.log('scrol111l')
-        this.doy.removeEventListener('scroll', this.orderScroll.bind(this))
-    }
+    // orderScroll() {
+    //     if(document.body.scrollTop>=135){
+    //         this.setState({show:'none'})
+    //         this.setState({width:100,bgc:'#d9d9d9',boxBgc:'#FFFFCC'})
+    //     }else{
+    //         this.setState({width:72,bgc:'#FFFFCC',boxBgc:''})
+    //         this.state.width === 72?this.setState({show:'block'}):this.setState({show:'none'})
+    //     }
+    // }
+    // componentWillUnmount(){
+    //
+    //     this.doy.removeEventListener('scroll', this.orderScroll.bind(this))
+    // }
     render(){
         let position=this.props.position
         return(

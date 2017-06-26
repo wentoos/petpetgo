@@ -27,10 +27,6 @@ class Commodity extends Component {
         window.history.back()
     }
     changeQuantity(i,id){
-        function isBigEnough(item) {
-            return item._id === id
-        }
-
         this.props.dispatch({type:'ALTER_NUMBER',i,id,all:this.props.all})
         this.props.dispatch({type:'BUY_NUMBER',i,id,all:this.props.all})
 
