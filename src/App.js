@@ -9,7 +9,7 @@ import User from './components/main/User'
 import Commodity from './components/main/Commodity'
 import Buys from './components/main/Buys'
 
-import {BrowserRouter as Router,Route } from 'react-router-dom'
+import {HashRouter as Router,Route } from 'react-router-dom'
 class App extends Component {
   render() {
     return (

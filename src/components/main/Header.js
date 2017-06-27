@@ -59,7 +59,7 @@ class Home extends Component {
                     <Link to='/search' style={{width:this.state.width+'%',background:this.state.bgc}}>{search}请输入商家名称</Link>
                 </div>
                 <Carousel autoplay >
-                    <a><img src={banner} alt='img'/></a>
+                    <a><img src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498479051230&di=7a24c390655c64407dc08b7782aa6cae&imgtype=0&src=http%3A%2F%2Fimg5.iqilu.com%2Fc%2Fu%2F2012%2F1105%2F1352076080788.jpg' alt='img'/></a>
                     <a><img src={banner1} alt='img'/></a>
                     <a><img src={banner2} alt='img'/></a>
                     <a><img src={banner3} alt='img'/></a>
