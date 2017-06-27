@@ -60,7 +60,7 @@ class Home extends Component {
                 </div>
                 <Carousel autoplay >
                     <a><img src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498479051230&di=7a24c390655c64407dc08b7782aa6cae&imgtype=0&src=http%3A%2F%2Fimg5.iqilu.com%2Fc%2Fu%2F2012%2F1105%2F1352076080788.jpg' alt='img'/></a>
-                    <a><img src={banner1} alt='img'/></a>
+                    <a><img src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498570851590&di=6b20af5085c8eb7dc472bc4da3a1225f&imgtype=0&src=http%3A%2F%2Fphoto.iyaxin.com%2Fattachement%2Fjpg%2Fsite2%2F20121112%2Fd4bed9e6027f120a9c1b39.jpg' alt='img'/></a>
                     <a><img src={banner2} alt='img'/></a>
                     <a><img src={banner3} alt='img'/></a>
                 </Carousel>
